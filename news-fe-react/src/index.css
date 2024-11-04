@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -20,14 +24,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -65,4 +61,223 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.main-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 92%;
+  background-color: rgba(32, 10, 33, 0.629);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  margin: 10px 20px 0px 20px;
+  border-radius: 74px;
+  background-color: #fff;
+  border-radius: 74px;
+  background: #fff;
+  box-shadow: 333px 97px 97px 0px rgba(0, 0, 0, 0),
+    213px 62px 89px 0px rgba(0, 0, 0, 0.01),
+    120px 35px 75px 0px rgba(0, 0, 0, 0.05),
+    53px 16px 56px 0px rgba(0, 0, 0, 0.09), 13px 4px 31px 0px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  padding-right: 100px;
+}
+.main-navigation h1 {
+  color: red;
+  margin: 0;
+}
+.main-navigation ul li {
+  color: white;
+  padding: 10px;
+  padding-right: 20px;
+}
+.main-navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+}
+
+#root {
+  margin-top: 150px;
+}
+
+.button-type2 {
+  border-radius: 40px !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 55px !important;
+  align-items: center !important;
+  border-radius: 9999px !important;
+  padding: 0 44px !important;
+  color: white;
+  background-color: #2b2b2b;
+  cursor: pointer;
+}
+.button-type2:hover {
+  color: white;
+}
+.button-type2 > * {
+  pointer-events: none;
+}
+.button-type2 .button-bg {
+  --tw-bg-opacity: 1;
+  background-color: transparent;
+}
+[data-button-svg] {
+  border-style: none;
+}
+.button-inner {
+  pointer-events: none;
+  display: block;
+  position: relative;
+}
+.button-primary {
+  border: 2px solid #2b2b2b;
+  transition: border-color 1s;
+}
+.button-primary:hover {
+  border-color: #ef3fa9;
+}
+.button-secondary {
+  border: 2px solid pink;
+}
+.button-secondary:hover {
+  border-color: pink;
+  color: white;
+}
+.button-inner-hover {
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(70%);
+}
+.button-inner-static {
+  pointer-events: none;
+  display: block;
+}
+.button-bg {
+  overflow: hidden;
+  border-radius: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+  display: block;
+}
+.button-bg-layer {
+  display: block;
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+}
+.button-bg-layers {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -60%;
+  aspect-ratio: 1;
+  width: 200%;
+}
+.button-bg-layer.first {
+  --tw-bg-opacity: 1;
+  background-color: #4b27a9;
+}
+.button-bg-layer.second {
+  --tw-bg-opacity: 1;
+  background-color: #26cad3;
+}
+.button-bg-layer.third {
+  --tw-bg-opacity: 1;
+  background-color: #ef3fa9;
+}
+@media (hover: hover) {
+  .button-type2 .button-inner-static {
+    transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  .button-type2 .button-inner-hover {
+    transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .button-type2 .button-bg-layer {
+    transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  .button-type2:hover {
+    cursor: pointer;
+  }
+  .button-type2:hover .button-inner-static {
+    opacity: 0;
+    transform: translateY(-70%);
+    transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  .button-type2:hover .button-inner-hover {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .button-type2:hover .button-bg-layer {
+    transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  .button-type2:hover .button-bg-layer-1 {
+    transform: scale(1);
+  }
+  .button-type2:hover .button-bg-layer-2 {
+    transition-delay: 0.1s;
+    transform: scale(1);
+  }
+  .button-type2:hover .button-bg-layer-3 {
+    transition-delay: 0.2s;
+    transform: scale(1);
+  }
+}
+
+.itemCard ul li img {
+  width: 350px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.logo img {
+  max-width: 350px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.Header-container {
+  flex-wrap: wrap;
+}
+
+.nav-container {
+  padding-right: 35px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  align-content: center;
+  padding-left: 35%;
 }

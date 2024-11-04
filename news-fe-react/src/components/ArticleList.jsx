@@ -1,25 +1,32 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
-//adding in comment to commit branch PR
-const ArticleList = (props) => {
-  console.log(props);
-  const [items, setItems] = useState([]);
+import { useSearchParams } from "react-router-dom";
+
+const ArticleList = () => {
   const [articles, setArticles] = useState([]);
+  const [searchParams] = useSearchParams();
+  const topic = searchParams.get("topic");
 
   useEffect(() => {
     getArticles().then((articles) => {
-      setArticles(articles);
+      const filteredArticles = topic
+        ? articles.filter((article) => article.topic === topic)
+        : articles;
+      setArticles(filteredArticles);
     });
-  }, []);
+  }, [topic]);
 
   return (
     <>
-      <h1>here are all the articles</h1>
-      {articles.map((article) => {
-        return <ArticleCard article={article} />;
-      })}
+      <h1>Here are all the articles for {topic}</h1>
+      <ul>
+        {articles.map((article, index) => (
+          <ArticleCard key={index} article={article} />
+        ))}
+      </ul>
     </>
   );
 };
+
 export default ArticleList;

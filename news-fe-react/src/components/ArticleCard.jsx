@@ -21,7 +21,6 @@ const ArticleCard = (props) => {
         </h2>
         <p className="text-gray-600">Topic: {article.topic}</p>
         <p className="text-gray-600">Author: {article.author}</p>
-        <p className="text-gray-600">Votes: {article.votes}</p>
       </div>
     </div>
   );

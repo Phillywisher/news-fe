@@ -1,14 +1,19 @@
+import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-export const Voter = (props) => {
+import { patchLikesCount } from "../api";
+import { useParams } from "react-router-dom";
+
+export const Voter = ({ votes, setVotes, article_id }) => {
   const [count, setCount] = useState(0);
   const incrementCount = (increment) => {
-    setCount((currCount) => {
-      return currCount + increment;
+    setVotes((votes) => {
+      return votes + increment;
     });
+    patchLikesCount(article_id, increment);
   };
+
   return (
     <div>
-      <p>Votes: {count}</p>
       <button onClick={() => incrementCount(1)}>Up vote</button>
       <button onClick={() => incrementCount(-1)}>Down vote</button>
     </div>

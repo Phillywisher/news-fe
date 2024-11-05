@@ -17,7 +17,17 @@ export const getArticleById = (articleId) => {
 };
 
 export const getCommentByArticleId = (articleId) => {
-  return api.get(`articles/${articleId}/comments`).then((res) => {
+  return api.get(`/articles/${articleId}/comments`).then((res) => {
     return res.data.comments;
   });
+};
+
+export const patchLikesCount = (article_id, inc_votes) => {
+  console.log(article_id, inc_votes);
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: inc_votes })
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    });
 };

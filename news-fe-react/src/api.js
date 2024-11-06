@@ -10,24 +10,28 @@ export const getArticles = () => {
   });
 };
 
-export const getArticleById = (articleId) => {
-  return api.get(`/articles/${articleId}`).then((res) => {
+export const getArticleById = (article_id) => {
+  return api.get(`/articles/${article_id}`).then((res) => {
     return res.data.article;
   });
 };
 
-export const getCommentByArticleId = (articleId) => {
-  return api.get(`/articles/${articleId}/comments`).then((res) => {
+export const getCommentByArticleId = (article_id) => {
+  return api.get(`/articles/${article_id}/comments`).then((res) => {
     return res.data.comments;
   });
 };
 
 export const patchLikesCount = (article_id, inc_votes) => {
-  console.log(article_id, inc_votes);
   return api
     .patch(`/articles/${article_id}`, { inc_votes: inc_votes })
     .then((res) => {
-      console.log(res.data);
       return res.data;
     });
+};
+
+export const postComment = (article_id) => {
+  return api.post(`/articles/${article_id}`, { body: comments }).then((res) => {
+    return res.data;
+  });
 };

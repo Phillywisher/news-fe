@@ -19,7 +19,7 @@ const ArticleList = () => {
 
   return (
     <>
-      <h1>Here are all the articles for {topic}</h1>
+      <h1>{topic}</h1>
       <ul>
         {articles.map((article, index) => (
           <ArticleCard key={index} article={article} />

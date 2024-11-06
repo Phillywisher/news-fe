@@ -5,7 +5,7 @@ const Navbar = () => {
     <>
       <div className="main-navigation">
         <div className="logo">
-          <img src="logo-news.svg" />
+          <img src="" />
         </div>
         <div className="nav">
           <nav className="nav-container">

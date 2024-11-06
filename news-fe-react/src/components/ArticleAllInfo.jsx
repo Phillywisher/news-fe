@@ -9,13 +9,12 @@ const ArticleAllInfo = () => {
   const { articleId } = useParams();
   const [article, setArticle] = useState("");
   const [error, setError] = useState(null);
-  const [comments, setComments] = useState([]);
-  const [votes, setVotes] = useState("");
+  const [votes, setVotes] = useState(0);
   useEffect(() => {
     getArticleById(articleId)
       .then((data) => {
         setArticle(data);
-        setVotes(data.votes);
+        setVotes(data.votes || 0);
       })
       .catch((error) => {
         setError(error.message);

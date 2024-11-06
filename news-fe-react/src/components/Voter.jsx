@@ -1,21 +1,32 @@
-import { useEffect, useState } from "react";
-import ArticleCard from "./ArticleCard";
+import { useState } from "react";
 import { patchLikesCount } from "../api";
-import { useParams } from "react-router-dom";
 
 export const Voter = ({ votes, setVotes, article_id }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(votes);
+  const [voted, setVoted] = useState(false);
   const incrementCount = (increment) => {
+    if (voted) {
+      return;
+    }
     setVotes((votes) => {
-      return votes + increment;
+      const newVote = votes + increment;
+      setCount(newVote);
+      return newVote;
     });
     patchLikesCount(article_id, increment);
+    setVoted(true);
   };
 
   return (
     <div>
-      <button onClick={() => incrementCount(1)}>Up vote</button>
-      <button onClick={() => incrementCount(-1)}>Down vote</button>
+      {!voted ? (
+        <>
+          <button onClick={() => incrementCount(1)}>Up vote</button>
+          <button onClick={() => incrementCount(-1)}>Down vote</button>
+        </>
+      ) : (
+        <p>Thanks for voting!</p>
+      )}
     </div>
   );
 };

@@ -17,7 +17,6 @@ export const Comments = ({ articleId }) => {
         setError(null);
       })
       .catch((err) => {
-        console.log(err);
         setError(err);
         setIsLoading(false);
       });

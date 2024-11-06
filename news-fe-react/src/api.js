@@ -31,7 +31,7 @@ export const patchLikesCount = (article_id, inc_votes) => {
 };
 
 export const postComment = (article_id) => {
-  return api.post(`/articles/${article_id}`, { body: comments }).then((res) => {
+  return api.post(`/articles/${article_id}`, { body: comment }).then((res) => {
     return res.data;
   });
 };

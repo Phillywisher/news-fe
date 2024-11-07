@@ -34,6 +34,7 @@ const ArticleAllInfo = () => {
         <p className="text-sm text-gray-400">
           Comments: {article.comment_count}
         </p>
+        <p className="article-body">{article.body}</p>
       </div>
       <ul className="flex flex-col gap-5 p-3">
         <Comments article_id={article_id} />

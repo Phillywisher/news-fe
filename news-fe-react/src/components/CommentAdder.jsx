@@ -11,14 +11,14 @@ const CommentAdder = ({ article_id, comments, addComment }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null);
-    postComment(article_id, userComment, user.username).then((res) => {
-      console.log(res);
-      addComment(res);
-      setUserComment("");
-    });
-    // .catch((err) => {
-    //   setError("Failed to post comment. Please try again.");
-    // });
+    postComment(article_id, userComment, user.username)
+      .then((res) => {
+        addComment(res);
+        setUserComment("");
+      })
+      .catch((err) => {
+        setError("Failed to post comment. Please try again.");
+      });
   };
 
   return (

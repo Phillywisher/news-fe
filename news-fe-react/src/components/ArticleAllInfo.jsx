@@ -16,7 +16,7 @@ const ArticleAllInfo = () => {
         setVotes(data.votes || 0);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.msg);
       });
   }, [article_id]);
 

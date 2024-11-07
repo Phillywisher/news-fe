@@ -31,11 +31,16 @@ export const patchLikesCount = (article_id, inc_votes) => {
 };
 
 export const postComment = (article_id, comment, user) => {
-  console.log(comment);
   const commentData = { username: user, body: comment };
   return api
     .post(`/articles/${article_id}/comments`, commentData)
     .then((res) => {
       return res.data.comment;
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return api.delete(`/comments/${comment_id}`).then((res) => {
+    return res;
+  });
 };

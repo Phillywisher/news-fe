@@ -8,16 +8,22 @@ export const Comments = ({ article_id }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const handleCommentDelete = (deletedCommentId) => {
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment.comment_id !== deletedCommentId)
+    );
+  };
   const fetchComments = () => {
     setIsLoading(true);
     getCommentByArticleId(article_id)
       .then((commentsFromApi) => {
+        console.log(commentsFromApi);
         setComments(commentsFromApi);
         setIsLoading(false);
         setError(null);
       })
-      .catch((err) => {
-        setError(err);
+      .catch((error) => {
+        setError(error);
         setIsLoading(false);
       });
   };
@@ -31,22 +37,27 @@ export const Comments = ({ article_id }) => {
   useEffect(() => {
     fetchComments();
   }, [article_id]);
+
   if (error) {
     return <p>Error</p>;
   }
   return (
     <section className="comments-section">
+      <CommentAdder addComment={addComment} article_id={article_id} />
       <h3>Comments</h3>
       {isLoading ? (
         <p>...Loading Please Wait</p>
       ) : (
         <ul>
-          {comments.map((comment, index) => {
-            return <CommentCard key={index} comment={comment} />;
-          })}
+          {comments.map((comment) => (
+            <CommentCard
+              key={comment.id}
+              comment={comment}
+              onDelete={handleCommentDelete}
+            />
+          ))}
         </ul>
       )}
-      <CommentAdder addComment={addComment} article_id={article_id} />
     </section>
   );
 };

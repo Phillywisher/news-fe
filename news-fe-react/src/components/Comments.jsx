@@ -51,7 +51,7 @@ export const Comments = ({ article_id }) => {
         <ul>
           {comments.map((comment) => (
             <CommentCard
-              key={comment.id}
+              key={comment.comment_id}
               comment={comment}
               onDelete={handleCommentDelete}
             />

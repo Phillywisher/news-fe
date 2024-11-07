@@ -3,14 +3,14 @@ import { getCommentByArticleId } from "../api";
 import CommentAdder from "./CommentAdder";
 import { CommentCard } from "./CommentCard";
 
-export const Comments = ({ articleId }) => {
+export const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchComments = () => {
     setIsLoading(true);
-    return getCommentByArticleId(articleId)
+    getCommentByArticleId(article_id)
       .then((commentsFromApi) => {
         setComments(commentsFromApi);
         setIsLoading(false);
@@ -30,7 +30,7 @@ export const Comments = ({ articleId }) => {
 
   useEffect(() => {
     fetchComments();
-  }, []);
+  }, [article_id]);
   if (error) {
     return <p>Error</p>;
   }
@@ -46,7 +46,7 @@ export const Comments = ({ articleId }) => {
           })}
         </ul>
       )}
-      <CommentAdder addComment={addComment} />
+      <CommentAdder addComment={addComment} article_id={article_id} />
     </section>
   );
 };

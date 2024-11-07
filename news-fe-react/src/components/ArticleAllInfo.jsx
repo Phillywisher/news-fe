@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
-import { getCommentByArticleId } from "../api";
-import { CommentCard } from "./CommentCard";
 import { Voter } from "./Voter";
 import { Comments } from "./Comments";
+
 const ArticleAllInfo = () => {
-  const { articleId } = useParams();
+  const { article_id } = useParams();
   const [article, setArticle] = useState("");
   const [error, setError] = useState(null);
   const [votes, setVotes] = useState(0);
   useEffect(() => {
-    getArticleById(articleId)
+    getArticleById(article_id)
       .then((data) => {
         setArticle(data);
         setVotes(data.votes || 0);
@@ -19,7 +18,7 @@ const ArticleAllInfo = () => {
       .catch((error) => {
         setError(error.message);
       });
-  }, [articleId]);
+  }, [article_id]);
 
   return (
     <>
@@ -37,9 +36,9 @@ const ArticleAllInfo = () => {
         </p>
       </div>
       <ul className="flex flex-col gap-5 p-3">
-        <Comments articleId={articleId} />
+        <Comments article_id={article_id} />
       </ul>
-      <Voter votes={votes} setVotes={setVotes} article_id={articleId} />
+      <Voter votes={votes} setVotes={setVotes} article_id={article_id} />
     </>
   );
 };

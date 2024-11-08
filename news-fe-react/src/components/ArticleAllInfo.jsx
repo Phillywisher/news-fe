@@ -25,13 +25,13 @@ const ArticleAllInfo = () => {
       <div className="main-container inner-post">
         <h1 className="page-heading">{article.title}</h1>
         <div className="">
-          <h2 className="">Topic: {article.topic}</h2>
-          <p className="">Created on: {article.created_at}</p>
-          <p className="">Author: {article.author}</p>
+          <h2 className="article-stuff">Topic: {article.topic}</h2>
+          <p className="article-stuff">Created on: {article.created_at}</p>
+          <p className="article-stuff">Author: {article.author}</p>
           <img className="post-image" src={article.article_img_url} />
-          <p className="">Votes: {votes}</p>
-          <p className="">Comments: {article.comment_count}</p>
-          <p className="">{article.body}</p>
+          <p className="article-stuff">Votes: {votes}</p>
+          <p className="article-stuff">Comments: {article.comment_count}</p>
+          <p className="article-stuff">{article.body}</p>
         </div>
         <ul className="">
           <Comments article_id={article_id} />

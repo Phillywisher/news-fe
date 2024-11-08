@@ -32,7 +32,7 @@ const CommentAdder = ({ article_id, comments, addComment }) => {
           onChange={({ target: { value } }) => setUserComment(value)}
         />
       </div>
-      <button disabled={error !== null}>
+      <button className="post-comment-btn" disabled={error !== null}>
         {error === null ? "Post Comment" : "Cannot post right now"}
       </button>
       {error && <p className="error-message">{error}</p>}

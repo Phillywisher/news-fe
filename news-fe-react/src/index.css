@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* main #fdfeff
+second #271f1f
+touch #ec197b */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #0077ef(204, 37, 37, 0.87);
+  background-color: #fdfeff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,11 +23,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #271f1f !important;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #ec197b;
 }
 
 h1 {
@@ -43,7 +47,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ec197b;
 }
 button:focus,
 button:focus-visible {
@@ -53,18 +57,20 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #943737;
   }
   a:hover {
-    color: #747bff;
+    color: #ec197b;
   }
   button {
     background-color: #f9f9f9;
   }
 }
-
+.comment-adder {
+  color: #ec197b !important;
+}
 .main-navigation {
-  background-color: rgba(32, 10, 33, 0.629);
+  background-color: rgba(214, 43, 223, 0.629);
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -85,11 +91,11 @@ button:focus-visible {
   font-size: 28px;
 }
 .main-navigation h1 {
-  color: red;
+  color: #ec197b;
   margin: 0;
 }
 .main-navigation ul li {
-  color: white;
+  color: rgb(191, 92, 92);
   padding: 10px;
 }
 .main-navigation ul li a {
@@ -117,7 +123,7 @@ button:focus-visible {
 }
 .card-container {
   background-color: #213547;
-  color: white;
+  color: rgb(252, 30, 30);
   margin-bottom: 20px;
 }
 .sort-controls select {
@@ -130,6 +136,10 @@ body {
 #root {
   padding-top: 250px;
   position: relative;
+}
+
+form {
+  color: yellow;
 }
 
 .button-type2 {
@@ -319,6 +329,10 @@ body {
   width: 100%;
   z-index: 1000;
 }
+
+.links li {
+  color: black !important;
+}
 .inner-post .post-image {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -327,6 +341,7 @@ body {
   margin-bottom: 10px;
 }
 .inner-post .comment-adder {
+  color: black;
   margin-bottom: 30px;
 }
 
@@ -357,4 +372,19 @@ body {
   .main-navigation {
     padding: 20px 10px;
   }
+}
+
+.comments-section {
+  color: #271f1f !important;
+}
+
+.delete-button {
+  color: #ec197b;
+}
+
+.post-comment-btn {
+  color: #ec197b !important;
+}
+.article-stuff {
+  color: black;
 }

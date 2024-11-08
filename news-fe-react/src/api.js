@@ -4,8 +4,22 @@ import { useParams } from "react-router-dom";
 const api = axios.create({
   baseURL: "https://the-news-manc-times.onrender.com/api",
 });
-export const getArticles = () => {
-  return api.get("/articles").then(({ data }) => {
+export const getArticles = ({
+  topic,
+  sort_by = "created_at",
+  order = "desc",
+}) => {
+  let url = "/articles";
+  const params = new URLSearchParams();
+
+  if (topic) params.append("topic", topic);
+  if (sort_by) params.append("sort_by", sort_by);
+  if (order) params.append("order", order);
+
+  if (params.toString()) {
+    url = `${url}?${params.toString()}`;
+  }
+  return api.get(url).then(({ data }) => {
     return data.articles;
   });
 };

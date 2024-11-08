@@ -9,8 +9,10 @@ export const UserProvider = ({ children }) => {
     avatar_url:
       "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
   });
+  const login = (newUser) => setUser(newUser);
+  const logout = () => setUser(null);
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
       {children}
     </UserContext.Provider>
   );

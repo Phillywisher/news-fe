@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { deleteComment } from "../api";
+import { UserContext } from "../context/UserContext";
 export const CommentCard = (props) => {
   const { comment, onDelete } = props;
   const [isDeleting, setIsDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState(null);
+  const { user } = useContext(UserContext);
+  const canDelete = user && user.username === comment.author;
   const handleDelete = () => {
     setIsDeleting(true);
     setDeleteError(null);
@@ -32,10 +35,16 @@ export const CommentCard = (props) => {
         <div className="mt-1 text-xs text-violet-400">
           <p>Posted on: {new Date(comment.created_at).toLocaleString()}</p>
           <div className="delete-button">
-            {isDeleting ? (
-              <button disabled>Deleting...</button>
+            {canDelete ? (
+              isDeleting ? (
+                <button disabled>Deleting...</button>
+              ) : (
+                <button onClick={handleDelete}>Delete</button>
+              )
             ) : (
-              <button onClick={handleDelete}>Delete</button>
+              <p className="text-xs text-gray-400">
+                You cannot delete this comment.
+              </p>
             )}
           </div>
           {deleteError && <p className="error">{deleteError}</p>}

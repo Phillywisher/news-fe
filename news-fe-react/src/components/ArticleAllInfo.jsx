@@ -22,24 +22,22 @@ const ArticleAllInfo = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
-      <div className="max-w-2xl mx-auto p-4">
-        <h2 className="text-xl text-gray-200 mb-4">Topic: {article.topic}</h2>
-        <p className="text-sm text-gray-300">
-          Created on: {article.created_at}
-        </p>
-        <p className="text-sm text-gray-40">Author: {article.author}</p>
-        <img src={article.article_img_url} className="mt-4 rounded-lg" />
-        <p className="text-sm text-gray-400">Votes: {votes}</p>
-        <p className="text-sm text-gray-400">
-          Comments: {article.comment_count}
-        </p>
-        <p className="article-body">{article.body}</p>
+      <div className="main-container inner-post">
+        <h1 className="page-heading">{article.title}</h1>
+        <div className="">
+          <h2 className="">Topic: {article.topic}</h2>
+          <p className="">Created on: {article.created_at}</p>
+          <p className="">Author: {article.author}</p>
+          <img className="post-image" src={article.article_img_url} />
+          <p className="">Votes: {votes}</p>
+          <p className="">Comments: {article.comment_count}</p>
+          <p className="">{article.body}</p>
+        </div>
+        <ul className="">
+          <Comments article_id={article_id} />
+        </ul>
+        <Voter votes={votes} setVotes={setVotes} article_id={article_id} />
       </div>
-      <ul className="flex flex-col gap-5 p-3">
-        <Comments article_id={article_id} />
-      </ul>
-      <Voter votes={votes} setVotes={setVotes} article_id={article_id} />
     </>
   );
 };

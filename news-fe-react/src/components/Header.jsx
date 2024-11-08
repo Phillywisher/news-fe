@@ -2,9 +2,11 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <>
-      <section className="Header-container">
+      <div className="main-container nav-con">
         <Navbar />
-        <h1>The News Manc Times</h1>
+      </div>
+      <section className="main-container">
+        <h1 className="title"></h1>
       </section>
     </>
   );

@@ -122,7 +122,7 @@ button:focus-visible {
   margin-bottom: 30px;
 }
 .card-container {
-  background-color: #213547;
+  background-color: black;
   color: rgb(252, 30, 30);
   margin-bottom: 20px;
 }
@@ -138,10 +138,6 @@ body {
   position: relative;
 }
 
-form {
-  color: yellow;
-}
-
 .button-type2 {
   border-radius: 40px !important;
   position: relative !important;
@@ -152,7 +148,7 @@ form {
   border-radius: 9999px !important;
   padding: 0 44px !important;
   color: white;
-  background-color: #2b2b2b;
+  background-color: black;
   cursor: pointer;
 }
 .button-type2:hover {
@@ -287,6 +283,9 @@ form {
     transform: scale(1);
   }
 }
+section.article-list {
+  padding: 50px;
+}
 
 .itemCard ul li img {
   width: 350px;
@@ -311,6 +310,23 @@ form {
   max-width: 350px;
   align-content: center;
   padding-left: 35%;
+}
+
+input {
+  background-color: white;
+  border: 1px solid black;
+}
+
+button {
+  background-color: white;
+  border: 1px solid #ec197b;
+  color: black;
+}
+
+select {
+  background-color: white;
+  border: 1px solid #ec197b;
+  color: black;
 }
 
 .main-container {

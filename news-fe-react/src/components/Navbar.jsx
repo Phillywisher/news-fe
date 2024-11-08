@@ -5,12 +5,13 @@ const Navbar = () => {
     <>
       <div className="main-navigation">
         <div className="logo">
-          <img src="" />
+          <h1>The News Manc Times</h1>
         </div>
         <div className="nav">
           <nav className="nav-container">
             <ul>
               <li>
+                {" "}
                 <Link to="/">Home</Link>
               </li>
               <li>
@@ -20,7 +21,7 @@ const Navbar = () => {
                 <Link to="/articles?topic=cooking">Cooking</Link>
               </li>
               <li>
-                <Link to="/articles?topic=football">Fooball</Link>
+                <Link to="/articles?topic=football">Football</Link>
               </li>
             </ul>
           </nav>

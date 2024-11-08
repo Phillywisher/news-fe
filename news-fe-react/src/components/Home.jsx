@@ -4,10 +4,12 @@ import ArticleList from "./ArticleList";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <>
+      <div className="main-container">
+        <h1 className="page-heading">Home</h1>
+      </div>
       <ArticleList />
-    </div>
+    </>
   );
 };
 export default Home;

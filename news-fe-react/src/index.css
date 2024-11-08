@@ -64,16 +64,12 @@ button:focus-visible {
 }
 
 .main-navigation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 92%;
   background-color: rgba(32, 10, 33, 0.629);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
   align-items: center;
-  margin: 10px 20px 0px 20px;
+  flex-direction: column;
   border-radius: 74px;
   background-color: #fff;
   border-radius: 74px;
@@ -83,7 +79,10 @@ button:focus-visible {
     120px 35px 75px 0px rgba(0, 0, 0, 0.05),
     53px 16px 56px 0px rgba(0, 0, 0, 0.09), 13px 4px 31px 0px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.5px);
-  padding-right: 100px;
+}
+.main-container .logo h1 {
+  text-align: center;
+  font-size: 28px;
 }
 .main-navigation h1 {
   color: red;
@@ -92,7 +91,9 @@ button:focus-visible {
 .main-navigation ul li {
   color: white;
   padding: 10px;
-  padding-right: 20px;
+}
+.main-navigation ul li a {
+  color: black;
 }
 .main-navigation ul {
   display: flex;
@@ -100,12 +101,35 @@ button:focus-visible {
   margin: 0;
   padding: 0;
 }
+.title {
+  font-size: 64px;
+  margin-bottom: 30px;
+}
+.page-heading {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+.sort-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.card-container {
+  background-color: #213547;
+  color: white;
+  margin-bottom: 20px;
+}
+.sort-controls select {
+  border-radius: 8px;
+}
 body {
   position: relative;
 }
 
 #root {
-  margin-top: 150px;
+  padding-top: 250px;
+  position: relative;
 }
 
 .button-type2 {
@@ -271,14 +295,66 @@ body {
   flex-wrap: wrap;
 }
 
-.nav-container {
-  padding-right: 35px;
-}
-
 .form-container {
   display: flex;
   flex-direction: column;
   max-width: 350px;
   align-content: center;
   padding-left: 35%;
+}
+
+.main-container {
+  max-width: 1280px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.main-container.nav-con {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1000;
+}
+.inner-post .post-image {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.inner-post p {
+  margin-bottom: 10px;
+}
+.inner-post .comment-adder {
+  margin-bottom: 30px;
+}
+
+.inner-post .comment-adder input {
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .nav-container {
+    padding-right: 35px;
+  }
+  .main-navigation {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  #root {
+    padding-top: 150px;
+    position: relative;
+  }
+  .main-container .logo h1 {
+    padding-left: 35px;
+  }
+  .main-navigation ul li {
+    padding: 0 10px;
+  }
+  .main-navigation {
+    padding: 20px 10px;
+  }
 }

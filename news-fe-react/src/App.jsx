@@ -7,7 +7,7 @@ import "./index.css";
 import { UserContext, UserProvider } from "./context/UserContext";
 import { useState } from "react";
 import Home from "./components/Home";
-
+//commit
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const isLoggedIn = Object.keys(loggedInUser).length > 0;

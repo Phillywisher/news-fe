@@ -9,6 +9,8 @@ export const UserProvider = ({ children }) => {
     avatar_url:
       "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
   });
+
+  // need to add all users avalible
   const login = (newUser) => setUser(newUser);
   const logout = () => setUser(null);
   return (
